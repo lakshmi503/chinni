@@ -14,4 +14,6 @@ export const {
   ORIGIN,
   MONGODB_URI,
   BASE_URL,
+  DB_NAME,
+  AudioUrlBase,
 } = process.env;
