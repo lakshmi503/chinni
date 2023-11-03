@@ -14,6 +14,8 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.441.0",
+    "aws-sdk": "^2.1486.0",
     "bcrypt": "^5.1.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -31,6 +33,7 @@
     "sanitize-html": "^2.10.0",
     "sharp": "^0.32.0",
     "slugify": "^1.6.6",
+    "tslib": "^2.6.2",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1"
   },
