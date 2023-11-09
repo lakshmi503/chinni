@@ -6,8 +6,11 @@ import routes from './route';
 import connection from '@/databases';
 
 
+
+
 validateEnv();
 connection(MONGODB_URI);
+
 
  
 const version = '/v1';
@@ -21,3 +24,5 @@ app.listen(PORT, () => {
   logger.info(`======= ENV: ${NODE_ENV} =======`);
   logger.info(`🚀 App listening on the port http://localhost:${PORT}`);
 });
+
+

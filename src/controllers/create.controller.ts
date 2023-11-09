@@ -1,16 +1,19 @@
-import Create from "@/models/create.model";
+import Create from "@/models/create.model"
+
 
 
 export const insert = async (req, res)=>{
     try{
-    const{name, phone, password} = req.body;
-    if(!name  || !phone  || !password){
+    const{name, email, mobile ,product} = req.body;
+    if(!name  || !email  || !mobile  || !product){
         return res.status(400).json({ msg: "Please fill all the fields" });
     }
 const create = await Create.create({
         name,
-        phone,
-        password
+        email,
+        mobile ,
+        product
+        
     })
     
     res.status(200).json(create);
@@ -36,14 +39,38 @@ export const getall = async(req,res) =>{
 
 export const edit = async(req,res)=>{
     const {id} = req.params;
-const {name,phone,password} = req.body;
+const {name,email,mobile,product} = req.body;
     try{
-const create = await Create.findOneAndUpdate({_id: id},{$set:{name,phone,password},new:true} )
+const create = await Create.findOneAndUpdate({_id: id},{$set:{name,email,mobile,product},new:true} )
 res.status(200).json(create);
     }catch{
         res.status(500).json("error")
     }
 }
+//edit details
+export const app = async(req,res)=>{
+    const {id} = req.params;
+const {name,email,mobile,product} = req.body;
+   try{
+const create = await Create. findOneAndReplace({ _id: id},{$set:{name,email,mobile,product},new:true} )
+res.status(200).json(create);
+   }catch{
+     res.status(500).json("error")
+   }
+
+   }
+//path details
+export const change = async(req,res)=>{
+    const createId = req.params.id;
+const {name,email,mobile,product} = req.body;
+   try{
+const create = await Create. findOneAndUpdate({ _id: createId},{$set:{name,email,mobile,product},new:true} )
+res.status(200).json(create);
+   }catch{
+     res.status(500).json("error")
+   }
+
+   }
 
 
 
@@ -60,3 +87,37 @@ export const deletebyId = async(req,res)=>{
     
     }
     }
+
+//     export const  product = async(req,res)=>{
+//        try{
+          
+//         const product  = req.params;
+//         const {name,email,password,city} = req.body
+//         try{
+//             const create = await Create. findOneAndUpdate({ product},{$set:{name,email,pass},new:true} )
+//             res.status(200).json(create);
+//     }catch{
+//        res.status(500).json("error")
+//     }
+    
+//     try{
+//         const(name,email,mobile,product)=re.body){
+//             if(!name || !email|| ! mobile || !product )
+//             return re
+//         }
+//     }
+        
+// const create = await Create.create({
+//      name,
+//      email,
+//      mobile,
+//      product
+//      )}
+//      res.status (200).json((create)); 
+// }catch(error){
+
+//     console.log(error)
+//     return res.status(400).json({$mes:"error",create})
+// }
+// }
+    

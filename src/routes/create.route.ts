@@ -8,9 +8,15 @@ router.post("/inserting",create.insert);
 
 router.get("/getdetails",create.getall);
 
-router.put("/editdet/:id",create.edit);
+router.put("/edited/:id",create.edit);
 
-router.delete('/deletedet/:id', create.deletebyId);
+router.delete('/deleted/:id', create.deletebyId);
+
+router.put('/app/:id',create.app);
+
+router.patch("/change/:id",create.change);
+
+// router.post("/product",create.product);
 
 
 export default router;
